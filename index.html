@@ -406,16 +406,57 @@
       content-visibility: auto;
     }
     @media (max-width: 768px) {
-      .nav { display: none; }
-      .hero-panel { padding: 40px 20px; border-radius: 20px; }
-      .grid { grid-template-columns: 1fr; gap: 16px; }
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.8rem; margin-top: 48px; }
-      .btn { width: 100%; padding: 14px; }
-      .card { padding: 24px; }
-    }
-  </style>
-</head>
+        .nav { display: none; }
+        .hero-panel { padding: 40px 20px; border-radius: 20px; }
+        .grid { grid-template-columns: 1fr; gap: 16px; }
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; margin-top: 48px; }
+        .btn { width: 100%; padding: 14px; }
+        .card { padding: 24px; }
+      }
+
+      /* Scroll to Top Button */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 5px 20px var(--primary-glow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 99;
+        border: none;
+      }
+      .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .scroll-top:hover {
+        background: #2b8cff;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(27, 132, 255, 0.6);
+      }
+      @media (max-width: 768px) {
+        .scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+      }
+    </style>
+  </head>
 <body>
   <header class="top">
     <div class="container top-row">
@@ -582,6 +623,32 @@
       <p>&copy; 2026 Lucky Bear Casino. Все права защищены. Играйте ответственно.</p>
       <p class="muted" style="font-size: 0.8rem; max-width: 600px; margin: 10px auto 0;">Важно помнить, что игра в казино может привести к финансовым потерям. Платформа предназначена для пользователей старше 18 лет.</p>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
   </main>
+
+  <script>
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>

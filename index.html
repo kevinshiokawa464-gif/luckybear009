@@ -509,7 +509,10 @@
       }
       
       body.locked #main-wrapper {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
       }
     </style>
   </head>
@@ -712,7 +715,9 @@
         setTimeout(() => {
           overlay.style.visibility = 'hidden';
           body.classList.remove('locked');
-          mainWrapper.style.display = 'block';
+          mainWrapper.style.opacity = '1';
+          mainWrapper.style.visibility = 'visible';
+          mainWrapper.style.height = 'auto';
         }, 300); // время соответствует transition в css
       });
     });

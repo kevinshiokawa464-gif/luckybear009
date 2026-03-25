@@ -455,10 +455,73 @@
           height: 45px;
         }
       }
+
+      /* Anti-Bot Overlay */
+      #bot-check-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #1e1e1e; /* Темный серый фон как на скрине */
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 15vh;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      
+      .bot-check-text {
+        color: #888;
+        font-family: monospace, sans-serif;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+
+      .btn-verify {
+        background: #1b84ff;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.1s, background 0.2s;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      .btn-verify:hover {
+        background: #166ae0;
+      }
+      
+      .btn-verify:active {
+        transform: scale(0.96);
+      }
+
+      /* Класс для скрытия контента сайта пока висит заглушка */
+      body.locked {
+        overflow: hidden;
+      }
+      
+      body.locked #main-wrapper {
+        display: none;
+      }
     </style>
   </head>
-<body>
-  <header class="top">
+<body class="locked">
+  <!-- Заглушка проверки на бота -->
+  <div id="bot-check-overlay">
+    <div class="bot-check-text">checking</div>
+    <button class="btn-verify" id="verifyBtn">Я не бот</button>
+  </div>
+
+  <div id="main-wrapper">
+    <header class="top">
     <div class="container top-row">
       <div class="brand">
         <div class="brand-icon">
@@ -625,14 +688,36 @@
     </footer>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 19V5M5 12l7-7 7 7"/>
-      </svg>
-    </button>
-  </main>
+      <button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </button>
+    </main>
+  </div>
 
   <script>
+    // Anti-bot logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const verifyBtn = document.getElementById('verifyBtn');
+      const overlay = document.getElementById('bot-check-overlay');
+      const body = document.body;
+      const mainWrapper = document.getElementById('main-wrapper');
+
+      verifyBtn.addEventListener('click', () => {
+        // Убираем заглушку с эффектом
+        overlay.style.opacity = '0';
+        
+        // Снимаем блокировку прокрутки и показываем сайт
+        setTimeout(() => {
+          overlay.style.visibility = 'hidden';
+          body.classList.remove('locked');
+          mainWrapper.style.display = 'block';
+        }, 300); // время соответствует transition в css
+      });
+    });
+
+    // Scroll to Top logic
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
     window.addEventListener('scroll', () => {

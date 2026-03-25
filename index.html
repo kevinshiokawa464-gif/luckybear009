@@ -132,20 +132,41 @@
       box-shadow: 0 5px 15px var(--primary-glow);
     }
     .hero {
-      padding: 60px 0 40px;
+      padding: 80px 0 60px;
       content-visibility: auto;
     }
     .hero-panel {
       border: 1px solid var(--line);
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(22, 30, 46, 0.8), rgba(14, 20, 29, 0.9));
+      border-radius: 32px;
+      background: radial-gradient(circle at top, rgba(27, 132, 255, 0.1) 0%, rgba(14, 20, 29, 0.9) 60%);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      padding: 56px 32px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+      padding: 60px 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
       text-align: center;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-logo {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      background: #121826;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 30px var(--primary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .hero-panel::before {
       content: "";
@@ -154,21 +175,34 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 50% 50%, var(--primary-glow), transparent 50%);
+      background: radial-gradient(circle at 50% 30%, var(--primary-glow), transparent 60%);
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.3;
     }
     h1, h2, h3 {
       margin: 0 0 16px;
       line-height: 1.2;
-      font-weight: 800;
+      font-weight: 900;
+    }
+    h2.welcome-text {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      margin: 0 0 10px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: none;
+      background: none;
+      -webkit-text-fill-color: initial;
     }
     h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      background: linear-gradient(to bottom right, #ffffff, #a5b4fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--primary);
+      background: none;
+      -webkit-text-fill-color: initial;
+      text-shadow: 0 0 25px var(--primary-glow), 0 0 10px rgba(27, 132, 255, 0.8);
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      line-height: 1.1;
     }
     h2 {
       margin-top: 64px;
@@ -178,66 +212,59 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    p {
-      margin: 0 0 20px;
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 800px;
+    p.hero-desc {
+      margin: 0 0 40px;
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      max-width: 650px;
       margin-inline: auto;
-      font-weight: 400;
-    }
-    .muted {
-      font-size: 0.95rem;
-      opacity: 0.8;
+      font-weight: 500;
+      line-height: 1.5;
     }
     .cta-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 0 0 var(--accent-glow); }
-      70% { box-shadow: 0 0 0 15px transparent; }
-      100% { box-shadow: 0 0 0 0 transparent; }
+      gap: 20px;
+      width: 100%;
+      max-width: 700px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, var(--accent-2), var(--accent));
-      color: #000;
+      background: var(--primary);
+      color: #fff;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1.05rem;
-      padding: 16px 32px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      font-size: 1.1rem;
+      padding: 18px 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px var(--primary-glow);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border: none;
       cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      animation: pulse-glow 2s infinite;
+      letter-spacing: 1px;
+      flex: 1;
+      min-width: 250px;
     }
     .btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5);
-      animation: none;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(27, 132, 255, 0.6);
+      background: #2b8cff;
     }
     .btn.secondary {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--line);
-      color: var(--text);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
       box-shadow: none;
-      animation: none;
       backdrop-filter: blur(10px);
     }
     .btn.secondary:hover {
       background: rgba(255, 255, 255, 0.1);
-      border-color: var(--muted);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
     .grid {
       display: grid;
@@ -391,13 +418,15 @@
   <main class="container">
     <section class="hero">
       <div class="hero-panel">
-        <h1>Lucky Bear Casino — Твой путь к большим выигрышам</h1>
-        <p>Добро пожаловать на лаки бир официальный сайт — место, где азарт встречается с надежностью. Мы собрали лучшие игровые автоматы lucky bear casino, обеспечили мгновенный lucky bear вход и подготовили эксклюзивные бонусы для каждого игрока. Исследуйте мир больших джекпотов прямо сейчас!</p>
-        <p class="muted">Используйте рабочее зеркало лаки бир для бесперебойного доступа к любимым играм в любое время.</p>
+        <div class="hero-logo">
+          <img src="favicon.png" alt="Lucky Bear Logo">
+        </div>
+        <h2 class="welcome-text">Добро пожаловать в</h2>
+        <h1>LUCKY BEAR БОТ КАЗИНО В ТЕЛЕГРАМ</h1>
+        <p class="hero-desc">Лаки Бир казино открывает дорогу к победам прямо в Telegram-боте! Используйте специальное предложение — бонус до 460% на депозит и 200 бесплатных вращений!</p>
         <div class="cta-row">
-          <a class="btn" href="https://lbgame777.xyz/2xn84Y" target="_blank" rel="noopener noreferrer">Начать играть</a>
-          <a class="btn secondary" href="https://lbgame777.xyz/2xn84Y" target="_blank" rel="noopener noreferrer">Получить бонус</a>
-          <a class="btn secondary" href="https://lbgame777.xyz/2xn84Y" target="_blank" rel="noopener noreferrer">Рабочее зеркало</a>
+          <a class="btn" href="https://lbgame777.xyz/2xn84Y" target="_blank" rel="noopener noreferrer">Запустить Бота</a>
+          <a class="btn secondary" href="https://lbgame777.xyz/2xn84Y" target="_blank" rel="noopener noreferrer">Рабочее Зеркало</a>
         </div>
       </div>
     </section>

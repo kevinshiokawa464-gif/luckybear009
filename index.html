@@ -357,7 +357,31 @@
     }
     .review {
       border-left: none;
-      border-top: 4px solid var(--accent);
+      border-top: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .review-author {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    .review-stars {
+      color: #f59e0b;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+    .review-text {
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
     }
     .faq {
       border: 1px solid var(--line);
@@ -491,13 +515,46 @@
       <h2>Отзывы реальных игроков</h2>
       <div class="grid">
         <article class="card review">
-          <p><strong>Александр:</strong> «Искал рабочее зеркало лаки бир и попал сюда. Все четко: зашел, закинул, поднял. Вывод пришел за 15 минут. Рекомендую!»</p>
+          <div class="review-header">
+            <span class="review-author">Александр</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Искал рабочее зеркало лаки бир и попал сюда. Все четко: зашел, закинул, поднял. Вывод пришел за 15 минут на крипту. Рекомендую!»</p>
         </article>
         <article class="card review">
-          <p><strong>Марина:</strong> «В Lucky Bear Casino лучшие слоты. Очень удобная мобильная версия, играю в дороге. Бонусы реально помогают на старте».</p>
+          <div class="review-header">
+            <span class="review-author">Марина</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«В Lucky Bear Casino лучшие слоты от Прагматика. Очень удобная мобильная версия, играю в дороге. Бонусы реально помогают на старте».</p>
         </article>
         <article class="card review">
-          <p><strong>Дмитрий:</strong> «Лаки бир официальный сайт радует поддержкой. Возник вопрос по промокоду — ответили мгновенно. Честное казино».</p>
+          <div class="review-header">
+            <span class="review-author">Дмитрий</span>
+            <span class="review-stars">★★★★☆</span>
+          </div>
+          <p class="review-text">«Лаки бир официальный сайт радует поддержкой. Возник вопрос по промокоду — ответили мгновенно. Честное казино с нормальной отдачей».</p>
+        </article>
+        <article class="card review">
+          <div class="review-header">
+            <span class="review-author">Сергей</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Больше всего зашел их lucky bear бот в телеграм. Не нужно искать зеркала, просто открыл телегу и играешь. Удобно и без лагов!»</p>
+        </article>
+        <article class="card review">
+          <div class="review-header">
+            <span class="review-author">Елена</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Активировала промокод Rish при регистрации, насыпали фриспинов как и обещали. Вывела первые деньги без проблем и верификации мозга».</p>
+        </article>
+        <article class="card review">
+          <div class="review-header">
+            <span class="review-author">Игорь (MaxBet)</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">«Катаю тут уже месяц. Плюсы: моментальный лаки бир вход, огромный выбор игр (4000+ это не шутка) и кэшбэк реально начисляют каждую неделю».</p>
         </article>
       </div>
     </section>

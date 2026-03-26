@@ -677,6 +677,122 @@
       body.locked {
         overflow: hidden;
       }
+
+      /* Popup Banner Styles */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+      }
+      .popup-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .popup-content {
+        background: linear-gradient(145deg, #121826, #0b0f19);
+        border: 2px solid var(--primary);
+        border-radius: 24px;
+        padding: 40px;
+        text-align: center;
+        max-width: 450px;
+        width: 90%;
+        position: relative;
+        transform: scale(0.8) translateY(50px);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px var(--primary-glow);
+      }
+      .popup-overlay.show .popup-content {
+        transform: scale(1) translateY(0);
+      }
+      .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: var(--muted);
+        cursor: pointer;
+        transition: color 0.3s;
+        line-height: 1;
+      }
+      .popup-close:hover {
+        color: #fff;
+      }
+      .popup-icon {
+        font-size: 60px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6));
+      }
+      .popup-title {
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin: 0 0 10px;
+        text-transform: uppercase;
+      }
+      .popup-title span {
+        color: var(--accent);
+      }
+      .popup-text {
+        color: var(--muted);
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.5;
+      }
+      .popup-timer {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+      .timer-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 10px 15px;
+        min-width: 70px;
+      }
+      .timer-num {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+      .timer-label {
+        font-size: 0.8rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .popup-btn {
+        display: block;
+        width: 100%;
+        background: linear-gradient(90deg, var(--primary), #2b8cff);
+        color: #fff;
+        text-decoration: none;
+        padding: 16px;
+        border-radius: 14px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        box-shadow: 0 10px 25px var(--primary-glow);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .popup-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(27, 132, 255, 0.6);
+      }
     </style>
   </head>
 <body class="locked">
@@ -687,6 +803,27 @@
     <style>
       @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
+  </div>
+
+  <!-- Bonus Popup -->
+  <div class="popup-overlay" id="bonusPopup">
+    <div class="popup-content">
+      <div class="popup-close" id="closePopup">&times;</div>
+      <div class="popup-icon">🎁</div>
+      <h3 class="popup-title">Твой <span>Бездеп</span> Сгорает!</h3>
+      <p class="popup-text">Забери 200 Фриспинов и бонус 460% на первый депозит, пока предложение еще активно.</p>
+      <div class="popup-timer">
+        <div class="timer-box">
+          <div class="timer-num" id="timer-min">14</div>
+          <div class="timer-label">минут</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-num" id="timer-sec">59</div>
+          <div class="timer-label">секунд</div>
+        </div>
+      </div>
+      <a href="https://lbgame777.xyz/2xn84Y" class="popup-btn" target="_blank">Забрать Бонус</a>
+    </div>
   </div>
 
   <div id="main-wrapper">
@@ -948,9 +1085,52 @@
         setTimeout(() => {
           overlay.style.display = 'none';
           body.classList.remove('locked');
+          
+          // Показываем бонусный попап через 5 секунд после входа на сайт
+          setTimeout(() => {
+            document.getElementById('bonusPopup').classList.add('show');
+            startTimer();
+          }, 5000);
+          
         }, 300); // время соответствует transition в css
       }, 2000);
     });
+
+    // Popup Logic
+    const popup = document.getElementById('bonusPopup');
+    const closePopupBtn = document.getElementById('closePopup');
+
+    closePopupBtn.addEventListener('click', () => {
+      popup.classList.remove('show');
+    });
+
+    // Закрытие по клику вне окна
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.remove('show');
+      }
+    });
+
+    // Timer Logic
+    function startTimer() {
+      let time = 14 * 60 + 59; // 14 минут 59 секунд
+      const minEl = document.getElementById('timer-min');
+      const secEl = document.getElementById('timer-sec');
+      
+      const interval = setInterval(() => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        
+        minEl.textContent = minutes < 10 ? '0' + minutes : minutes;
+        secEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+        
+        if (time <= 0) {
+          clearInterval(interval);
+        } else {
+          time--;
+        }
+      }, 1000);
+    }
 
     // Scroll to Top logic
     const scrollTopBtn = document.getElementById('scrollTopBtn');

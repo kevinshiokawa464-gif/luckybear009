@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucky Bear Бот Казино в Телеграм — Вход, Зеркало, Игры и Бонусы</title>
-  <meta name="description" content="Lucky Bear Casino: официальный бот в телеграм. Вход, рабочее зеркало, регистрация, бонусы 2026, более 4000 игр и быстрые выплаты. Играй прямо в Telegram!">
+  <title>Lucky Bear Casino: Вход в Telegram Бот | Бонус 460% и 200 FS</title>
+  <meta name="description" content="🔥 Забирай 200 Фриспинов и бонус 460% в Lucky Bear Casino! Играй прямо в Telegram без блокировок. Рабочее зеркало, мгновенные выплаты и 4000+ игр. Жми и забирай куш!">
   <meta name="keywords" content="lucky bear бот казино в телеграм, lucky bear casino, lucky bear официальный сайт, лаки бир казино, лаки бир официальный сайт, luckybear официальный сайт, lucky bear зеркало, лаки бир рабочее зеркало, lucky bear вход, лаки бир вход, lucky bear промокод, лаки бир бонусы, lucky bear регистрация, лаки бир личный кабинет, lucky bear бот, лаки бир телеграм">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="yandex-verification" content="lucky-bear-casino-portal">
@@ -39,17 +39,38 @@
     html {
       scroll-behavior: smooth;
     }
+    @keyframes bgRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     body {
       margin: 0;
       color: var(--text);
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1), transparent 25%);
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       background-attachment: fixed;
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        radial-gradient(circle at 30% 30%, rgba(27, 132, 255, 0.25), transparent 30%),
+        radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.2), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 40%);
+      animation: bgRotate 40s linear infinite;
+      z-index: -1;
+      pointer-events: none;
     }
     .container {
       width: min(1140px, 92vw);
@@ -652,20 +673,16 @@
       body.locked {
         overflow: hidden;
       }
-      
-      body.locked #main-wrapper {
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
-        overflow: hidden;
-      }
     </style>
   </head>
 <body class="locked">
   <!-- Заглушка проверки на бота -->
   <div id="bot-check-overlay">
-    <div class="bot-check-text">checking</div>
-    <button class="btn-verify" id="verifyBtn">Я не бот</button>
+    <div class="bot-check-text">Checking your browser before accessing...</div>
+    <div style="width: 40px; height: 40px; border: 4px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px;"></div>
+    <style>
+      @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
   </div>
 
   <div id="main-wrapper">
@@ -712,7 +729,7 @@
       <div class="slots-grid">
         <article class="slot-card">
           <div class="slot-img">
-            <img src="pumpedx.jpg" alt="PumpedX Slot" onerror="this.style.display='none'">
+            <img src="./PumpedX.jpg" alt="PumpedX Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">PUMPEDX</div>
           </div>
           <p class="slot-desc">Раскручивайте множители до максимальных значений! Удерживайте клавишу, чтобы ваш герой набирал мощь, а джекпот стремительно увеличивался.</p>
@@ -721,7 +738,7 @@
 
         <article class="slot-card">
           <div class="slot-img">
-            <img src="mines.jpg" alt="MineSlot 2 Slot" onerror="this.style.display='none'">
+            <img src="./MineSlot2.jpg" alt="MineSlot 2 Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">MINESLOT 2</div>
           </div>
           <p class="slot-desc">Вторая часть легендарного хита! Еще больше скрытых множителей, улучшенная графика и новые бонусные раунды. Открывайте ячейки и забирайте максимальный профит до взрыва.</p>
@@ -730,7 +747,7 @@
 
         <article class="slot-card">
           <div class="slot-img">
-            <img src="olympus.jpg" alt="Rings of Olympus Slot" onerror="this.style.display='none'">
+            <img src="./Ring Of Olympus.jpg" alt="Rings of Olympus Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">RINGS OF OLYMPUS</div>
           </div>
           <p class="slot-desc">Переступите порог священных чертогов Олимпа! Великий Зевс и сонм божеств приготовили для вас щедрые дары и невероятные множители.</p>
@@ -739,7 +756,7 @@
 
         <article class="slot-card">
           <div class="slot-img">
-            <img src="tapinata.jpg" alt="Tapinata Slot" onerror="this.style.display='none'">
+            <img src="./Tapinata.jpg" alt="Tapinata Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">TAPINATA</div>
           </div>
           <p class="slot-desc">Разбейте красочную пиньяту в одно касание и выиграйте джекпот! Каждое попадание открывает спрятанные богатства.</p>
@@ -748,7 +765,7 @@
 
         <article class="slot-card">
           <div class="slot-img">
-            <img src="aviamasters.jpg" alt="Aviamasters Slot" onerror="this.style.display='none'">
+            <img src="./Aviamasters.jpg" alt="Aviamasters Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">AVIAMASTERS</div>
           </div>
           <p class="slot-desc">Наблюдайте за взлетающим самолетом и заберите свой выигрыш до его исчезновения! Чем дальше расстояние полета — тем значительнее множитель вашей победы.</p>
@@ -757,7 +774,7 @@
 
         <article class="slot-card">
           <div class="slot-img">
-            <img src="towers.jpg" alt="Tower Rush Slot" onerror="this.style.display='none'">
+            <img src="./Tower Rush.jpg" alt="Tower Rush Slot" onerror="this.style.display='none'">
             <div class="slot-img-title">TOWER RUSH</div>
           </div>
           <p class="slot-desc">Безумная гонка по этажам! Выбирайте безопасные блоки, поднимайтесь всё выше и умножайте ставку с каждым шагом. Рискните дойти до самой вершины ради мега-джекпота!</p>
@@ -918,24 +935,17 @@
   <script>
     // Anti-bot logic
     document.addEventListener('DOMContentLoaded', () => {
-      const verifyBtn = document.getElementById('verifyBtn');
       const overlay = document.getElementById('bot-check-overlay');
       const body = document.body;
-      const mainWrapper = document.getElementById('main-wrapper');
 
-      verifyBtn.addEventListener('click', () => {
-        // Убираем заглушку с эффектом
+      // Автоматически убираем заглушку через 2 секунды (создает видимость проверки)
+      setTimeout(() => {
         overlay.style.opacity = '0';
-        
-        // Снимаем блокировку прокрутки и показываем сайт
         setTimeout(() => {
-          overlay.style.visibility = 'hidden';
+          overlay.style.display = 'none';
           body.classList.remove('locked');
-          mainWrapper.style.opacity = '1';
-          mainWrapper.style.visibility = 'visible';
-          mainWrapper.style.height = 'auto';
         }, 300); // время соответствует transition в css
-      });
+      }, 2000);
     });
 
     // Scroll to Top logic

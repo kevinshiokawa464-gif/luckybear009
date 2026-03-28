@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="geo.region" content="RU">
   <meta name="geo.placename" content="Россия">
-  <link rel="alternate" hreflang="ru-RU" href="https://lbgame777.xyz/2xn84Y" />
+  <link rel="canonical" href="https://www.luckybear3.xyz/" />
+  <link rel="alternate" hreflang="ru-RU" href="https://www.luckybear3.xyz/" />
   <title>Lucky Bear Casino: Вход в Telegram Бот | Бонус 460% и 200 FS</title>
   <meta name="description" content="🔥 Забирай 200 Фриспинов и бонус 460% в Lucky Bear Casino! Играй прямо в Telegram без блокировок. Рабочее зеркало, мгновенные выплаты и 4000+ игр. Жми и забирай куш!">
   <meta name="keywords" content="lucky bear бот казино в телеграм, lucky bear casino, lucky bear официальный сайт, лаки бир казино, лаки бир официальный сайт, luckybear официальный сайт, lucky bear зеркало, лаки бир рабочее зеркало, lucky bear вход, лаки бир вход, lucky bear промокод, лаки бир бонусы, lucky bear регистрация, лаки бир личный кабинет, lucky bear бот, лаки бир телеграм">
@@ -15,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lucky Bear Бот Казино в Телеграм — Вход, Зеркало, Игры и Бонусы">
   <meta property="og:description" content="Lucky Bear Casino: официальный бот в телеграм. Вход, рабочее зеркало, регистрация, бонусы 2026, более 4000 игр и быстрые выплаты. Играй прямо в Telegram!">
-  <meta property="og:url" content="https://lbgame777.xyz/2xn84Y">
+  <meta property="og:url" content="https://www.luckybear3.xyz/">
   <meta property="og:image" content="favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -1079,7 +1080,17 @@
       const overlay = document.getElementById('bot-check-overlay');
       const body = document.body;
 
-      // Автоматически убираем заглушку через 2 секунды (создает видимость проверки)
+      // Проверка на поисковых роботов (Googlebot, YandexBot и др.)
+      const isBot = /bot|google|yandex|bing|slurp|duckduckgo|baiduspider|facebot|ia_archiver/i.test(navigator.userAgent);
+
+      if (isBot) {
+        // Для роботов сразу скрываем оверлей и разблокируем страницу
+        overlay.style.display = 'none';
+        body.classList.remove('locked');
+        return;
+      }
+
+      // Для обычных пользователей - имитация проверки через 2 секунды
       setTimeout(() => {
         overlay.style.opacity = '0';
         setTimeout(() => {
@@ -1088,8 +1099,11 @@
           
           // Показываем бонусный попап через 5 секунд после входа на сайт
           setTimeout(() => {
-            document.getElementById('bonusPopup').classList.add('show');
-            startTimer();
+            const bonusPopup = document.getElementById('bonusPopup');
+            if (bonusPopup) {
+              bonusPopup.classList.add('show');
+              startTimer();
+            }
           }, 5000);
           
         }, 300); // время соответствует transition в css
